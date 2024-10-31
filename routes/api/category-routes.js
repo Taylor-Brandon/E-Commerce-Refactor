@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const { reseller } = require('googleapis/build/src/apis/reseller');
 const {Category, Product} = require('../../models');
 
 router.get('/', async (req, res) => {
@@ -49,6 +48,23 @@ router.put('/:id', async (req, res) => {
             return;
         }
         res.status(200).json(categoryData);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+router.delete('/:id', async (req, res) => {
+    try {
+        const categoryData = await Category.destroy({
+            where: {
+                id: req.params.id,
+            },
+        });
+        if (!categoryData) {
+            res.status(404).json({ message: 'No category found with that id!'});
+            return;
+        }
+        req.status(200).json(categoryData);
     } catch (err) {
         res.status(500).json(err);
     }
