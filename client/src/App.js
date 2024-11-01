@@ -1,9 +1,15 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Homepage from './pages/homepage';
+
 
 export default function App() {
     return (
-        <div>
-            <h1>Hello World!</h1>
-        </div>
+        <Router>
+            <Routes>
+                <Route path="/" element={<Homepage />} />
+                <Route path="/products" element={<Homepage />} />
+            </Routes>
+        </Router>
     );
 }
