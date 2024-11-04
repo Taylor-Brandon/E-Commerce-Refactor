@@ -6,7 +6,7 @@ export default function TagList() {
     const [error, setError] = useState('');
 
     useEffect(() => {
-        api.get('/tag')
+        api.get('/tags')
             .then((response) => setTag(response.data))
             .catch((error) => {
                 console.error('Error Fetching tag!', error);
