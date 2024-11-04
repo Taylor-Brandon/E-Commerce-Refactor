@@ -5,6 +5,8 @@ import Product from './pages/product';
 import ProductList from './components/productForm';
 import ProductForm from './components/productForm';
 import SearchProducts from './components/searchProducts';
+import CatgeoryList from './components/categoryList';
+import TagList from './components/tagList';
 
 
 export default function App() {
@@ -15,6 +17,8 @@ export default function App() {
                 <Route path="/products" element={<Product />} />
                 <Route path="/productForm" element={<ProductForm />} />
                 <Route path="/searchProduct" element={<SearchProducts />} />
+                <Route path="/categories" element={<CatgeoryList />} />
+                <Route path="/tags" element={<TagList />} />
             </Routes>
         </Router>
     );
