@@ -2,11 +2,10 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Homepage from './pages/homepage';
 import Product from './pages/product';
-import ProductList from './components/productForm';
 import ProductForm from './components/productForm';
 import SearchProducts from './components/searchProducts';
-import CatgeoryList from './components/categoryList';
-import TagList from './components/tagList';
+import Category from './pages/category';
+import Tag from './pages/tag';
 
 
 export default function App() {
@@ -17,8 +16,8 @@ export default function App() {
                 <Route path="/products" element={<Product />} />
                 <Route path="/productForm" element={<ProductForm />} />
                 <Route path="/searchProduct" element={<SearchProducts />} />
-                <Route path="/categories" element={<CatgeoryList />} />
-                <Route path="/tags" element={<TagList />} />
+                <Route path="/categories" element={<Category />} />
+                <Route path="/tags" element={<Tag />} />
             </Routes>
         </Router>
     );
