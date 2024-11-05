@@ -3,6 +3,7 @@ import api from '../utils/api';
 
 export default function SearchProducts() {
     const [search, setSearch] = useState('');
+    const [visible, setVisible] = useState(false);
     const [products, setProducts] = useState([]);
     const [filteredProducts, setFilteredProducts] = useState([]); 
 
@@ -31,6 +32,7 @@ export default function SearchProducts() {
             );
         });
         setFilteredProducts(filtered);
+        setVisible(true);
     };
 
     return (
@@ -52,10 +54,13 @@ export default function SearchProducts() {
                 </button>
             </div>
 
+            {visible && (
+            <div>
             {filteredProducts.length === 0 ? (
                 <p id="noProduct-result">No results found</p>
             ) : (
-                <div id="searchProduct-list">
+                <div>
+                    <div id="searchProduct-list">
                     <ul id="product-results">
                         {filteredProducts.map((product) => (
                             <li id="indiv-product" key={product.id}>
@@ -64,6 +69,9 @@ export default function SearchProducts() {
                         ))}
                     </ul>
                 </div>
+                </div>
+            )}
+            </div>
             )}
         </div>
     );
