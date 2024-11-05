@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
 import api from '../utils/api';
 
 export default function ProductList() {
@@ -74,6 +75,7 @@ export default function ProductList() {
                         >
                             {favorites.some(fav => fav.id === product.id) ? 'Unfavorite' : 'Favorite'}
                         </button>
+                        <Link id="edit-btn" to={`/products/${product.id}`}>Edit</Link>
                     </li>
                 ))}
             </ul>

@@ -8,6 +8,9 @@ import Category from './pages/category';
 import Tag from './pages/tag';
 import CategoryForm from './components/categoryForm';
 import TagForm from './components/tagForm';
+import UpdateProduct from './components/updateProduct';
+import TagUpdate from './components/tagUpdate';
+import CategoryUpdate from './components/categoryUpdate';
 
 
 export default function App() {
@@ -22,6 +25,9 @@ export default function App() {
                 <Route path="/tags" element={<Tag />} />
                 <Route path="/categoryForm" element={<CategoryForm />} />
                 <Route path="/tagForm" element={<TagForm />} />
+                <Route path="/products/:productId" element={<UpdateProduct />} />
+                <Route path="/tags/:tagId" element={<TagUpdate />} />
+                <Route path="/categories/:categoryId" element={<CategoryUpdate />} />
             </Routes>
         </Router>
     );

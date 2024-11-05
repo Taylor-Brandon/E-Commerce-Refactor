@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
 import api from '../utils/api';
 
 export default function CatgeoryList() {
@@ -33,6 +34,7 @@ export default function CatgeoryList() {
                     <li key={category.id}>
                         {category.category_name}
                         <button className='button' onClick={() => handleCategoryDelete(category.id)}>Delete</button>
+                        <Link id="edit-btn" to={`/categories/${category.id}`}>Edit</Link>
                     </li>
                 ))}
             </ul>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
 import api from '../utils/api';
 
 export default function TagList() {
@@ -33,6 +34,7 @@ export default function TagList() {
                     <li key={tag.id}>
                         {tag.tag_name}
                         <button className='button' onClick={() => handleTagDelete(tag.id)}>Delete</button>
+                        <Link id="edit-btn" to={`/tags/${tag.id}`}>Edit</Link>
                     </li>
                 ))}
             </ul>
