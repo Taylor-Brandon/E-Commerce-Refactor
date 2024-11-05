@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import api from '../utils/api';
 
 export default function Homepage() {
@@ -16,6 +17,13 @@ export default function Homepage() {
 
     return (
         <div>
+            <nav>
+                <ul>
+                    <li><Link to="/categories">Catgeories</Link></li>
+                    <li><Link to="/tags">Tags</Link></li>
+                    <li><Link to="/products">Products</Link></li>
+                </ul>
+            </nav>
             <h2>Products</h2>
             {error && <p>{error}</p>}
             <ul>
@@ -28,5 +36,7 @@ export default function Homepage() {
         </div>
     );
 }
+
+
 
 
