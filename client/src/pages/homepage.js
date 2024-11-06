@@ -15,6 +15,10 @@ export default function Homepage() {
             });
     }, []);
 
+    const handleButtonResponse = () => {
+        console.log('Checkout');
+    }
+
     return (
         <div>
             <nav>
@@ -33,6 +37,7 @@ export default function Homepage() {
                     </li>
                 ))}
             </ul>
+            <button className='button' onClick={handleButtonResponse}>Checkout</button>
         </div>
     );
 }
