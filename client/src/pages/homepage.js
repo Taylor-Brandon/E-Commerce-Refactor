@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../utils/api';
+import Checkout from '../components/checkout';
 
 export default function Homepage() {
     const [products, setProducts] = useState([]);
@@ -33,6 +34,7 @@ export default function Homepage() {
                     </li>
                 ))}
             </ul>
+            <Checkout/>
         </div>
     );
 }
