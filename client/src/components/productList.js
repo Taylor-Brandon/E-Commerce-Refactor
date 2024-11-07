@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
+import Cart from './cart';
 import api from '../utils/api';
 
 export default function ProductList() {
     const [products, setProducts] = useState([]);
     const [favorites, setFavorites] = useState([]);
+    const [added, setAdded] = useState([]);
     const [error, setError] = useState('');
 
     
@@ -47,6 +49,24 @@ export default function ProductList() {
         localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
     };
 
+    const handleAddProduct = (product) => {
+        const updatedAdded = [...added]; // Create a copy of the current cart
+        
+        // Check if the product is already in the cart
+        const existingProductIndex = updatedAdded.findIndex(add => add.id === product.id);
+        
+        if (existingProductIndex > -1) {
+            // If the product exists, increase its quantity
+            updatedAdded[existingProductIndex].quantity += 1;
+        } else {
+            // If the product doesn't exist, add it with a quantity of 1
+            updatedAdded.push({ ...product, quantity: 1 });
+        }
+        
+        setAdded(updatedAdded);
+        localStorage.setItem('added', JSON.stringify(updatedAdded)); // Save to local storage
+    };
+    
    
     const removeFavorite = (productId) => {
         const updatedFavorites = favorites.filter(fav => fav.id !== productId);
@@ -69,6 +89,7 @@ export default function ProductList() {
                         >
                             Delete
                         </button>
+                        <button className='button' onClick={() => handleAddProduct(product)}>+</button>
                         <button 
                             className='button' 
                             onClick={() => handleFavoriteProduct(product)}
@@ -79,6 +100,7 @@ export default function ProductList() {
                     </li>
                 ))}
             </ul>
+            <Cart added={added}/>
         </div>
     );
 }
