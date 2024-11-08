@@ -5,13 +5,11 @@ export default function Cart({ added }) {
     const [cartProducts, setCartProducts] = useState([]);
 
     useEffect(() => {
-        // Load cart items from local storage when the component mounts
         const storedItems = JSON.parse(localStorage.getItem('added')) || [];
         setCartProducts(storedItems);
     }, []);
 
     const removeAdded = (productId) => {
-        // Remove the selected item from the cart
         const updatedAdded = cartProducts.filter((add) => add.id !== productId);
         setCartProducts(updatedAdded);
         localStorage.setItem('added', JSON.stringify(updatedAdded));

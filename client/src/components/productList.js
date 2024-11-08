@@ -50,21 +50,15 @@ export default function ProductList() {
     };
 
     const handleAddProduct = (product) => {
-        const updatedAdded = [...added]; // Create a copy of the current cart
-        
-        // Check if the product is already in the cart
+        const updatedAdded = [...added]; 
         const existingProductIndex = updatedAdded.findIndex(add => add.id === product.id);
-        
         if (existingProductIndex > -1) {
-            // If the product exists, increase its quantity
             updatedAdded[existingProductIndex].quantity += 1;
         } else {
-            // If the product doesn't exist, add it with a quantity of 1
             updatedAdded.push({ ...product, quantity: 1 });
         }
-        
         setAdded(updatedAdded);
-        localStorage.setItem('added', JSON.stringify(updatedAdded)); // Save to local storage
+        localStorage.setItem('added', JSON.stringify(updatedAdded));
     };
     
    
