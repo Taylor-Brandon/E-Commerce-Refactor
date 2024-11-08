@@ -8,7 +8,8 @@ const userRoutes = require('./user-routes');
 router.use('/categories', categoryRoutes);
 router.use('/products', productRoutes);
 router.use('/tags', tagRoutes);
-router.use('/checkout', checkoutRoutes);
 router.use('/users', userRoutes);
+router.use('/checkout', checkoutRoutes);
+
 
 module.exports = router;

@@ -3,58 +3,57 @@ const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
 class User extends Model {
-    checkPassword(loginPw) {
-      console.log('Checking password:', loginPw);
-      console.log('Stored hash:', this.password);
-      return bcrypt.compareSync(loginPw, this.password);
-    }
-    
-  }
-  
-  User.init(
-    {
-      id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        primaryKey: true,
-        autoIncrement: true,
-      },
-      username: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      email: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        unique: true,
-        validate: {
-          isEmail: true,
-        },
-      },
-      password: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          len: [8],
-        },
+  async checkPassword(loginPw) {
+    const match = await bcrypt.compare(loginPw, this.password); 
+    return match;  
+}
+}
+
+User.init(
+  {
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    username: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+      validate: {
+        isEmail: true,
       },
     },
-    {
-      hooks: {
-        beforeCreate: async (newUserData) => {
-          console.log('Hashing password for:', newUserData.email);
-          newUserData.password = await bcrypt.hash(newUserData.password, 10);
-          return newUserData;
-        },
-        
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [8, 128], 
       },
-      sequelize,
-      timestamps: false,
-      freezeTableName: true,
-      underscored: true,
-      modelName: 'user',
+    },
+  },
+  {
+    hooks: {
+     
+      beforeCreate: async (newUserData) => {
+        const hashedPassword = await bcrypt.hash(newUserData.password, 10);
+        newUserData.password = hashedPassword;
+        return newUserData;
     }
-  );
-  
-  module.exports = User;
+    
+    },
+    sequelize,
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'user',
+  }
+);
+
+module.exports = User;
 

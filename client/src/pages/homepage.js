@@ -16,6 +16,18 @@ export default function Homepage() {
             });
     }, []);
 
+    const handleLogout = (e) => {
+        e.preventDefault();
+        api.post('/users/logout')
+        .then(() => {
+            alert('Goodbye!');
+            window.location.href = '/login';
+            localStorage.clear();
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+    }
     return (
         <div>
             <nav>
@@ -24,6 +36,15 @@ export default function Homepage() {
                     <li><Link to="/tags">Tags</Link></li>
                     <li><Link to="/products">Products</Link></li>
                 </ul>
+                <ul>
+                    <li>
+                        <Link to='/signup'>Sign Up</Link>
+                    </li>
+                    <li>
+                        <Link to='/login'>Login</Link>
+                    </li>
+                </ul>
+                <button onClick={handleLogout}>Logout</button>
             </nav>
             <h2>Products</h2>
             {error && <p>{error}</p>}

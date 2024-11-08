@@ -11,6 +11,10 @@ import TagForm from './components/tagForm';
 import UpdateProduct from './components/updateProduct';
 import TagUpdate from './components/tagUpdate';
 import CategoryUpdate from './components/categoryUpdate';
+import Signup from './pages/signup';
+import Login from './pages/login';
+import Profile from './pages/profile';
+import UpdateUser from './components/updateUser';
 
 
 export default function App() {
@@ -28,6 +32,10 @@ export default function App() {
                 <Route path="/products/:productId" element={<UpdateProduct />} />
                 <Route path="/tags/:tagId" element={<TagUpdate />} />
                 <Route path="/categories/:categoryId" element={<CategoryUpdate />} />
+                <Route path="/signup" element={<Signup />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/profile" element={<Profile />} />
+                <Route path="/updateUser" element={<UpdateUser />} />
             </Routes>
         </Router>
     );

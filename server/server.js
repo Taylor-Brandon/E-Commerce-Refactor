@@ -1,14 +1,31 @@
 require('dotenv').config({ path: '../.env' });
 const express = require('express');
 const routes = require('./routes');
+const session = require('express-session');
 const Stripe = require('stripe');
-const stripe = Stripe(process.env.STRIPE_SECRET_KEY);  // Use the secret key from environment variables
+const stripe = Stripe(process.env.STRIPE_SECRET_KEY);  
+
+const sequelize = require('./config/connection');
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+const sess = {
+  secret: 'Super secret secret',
+  cookie: {maxAge: 30 * 60 * 1000},
+  resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize
+  })
+};
+
+app.use(session(sess));
+
 
 const cors = require('cors');
 app.use(cors());
