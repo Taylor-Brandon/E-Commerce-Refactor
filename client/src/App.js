@@ -15,6 +15,8 @@ import Signup from './pages/signup';
 import Login from './pages/login';
 import Profile from './pages/profile';
 import UpdateUser from './components/updateUser';
+import ProductInfo from './pages/productInfo';
+import './styles/style.css';
 
 
 export default function App() {
@@ -36,6 +38,7 @@ export default function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/updateUser" element={<UpdateUser />} />
+                <Route path="/productInfo/:productId" element={<ProductInfo />} />
             </Routes>
         </Router>
     );

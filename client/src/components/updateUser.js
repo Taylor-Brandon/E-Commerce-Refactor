@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import Nav from './nav';
 import api from '../utils/api';
 
 export default function UpdateUser() {
@@ -44,13 +45,16 @@ export default function UpdateUser() {
     }
 
     return (
+        <div>
+            <Nav />
+            <div className='update-section'>
         <div className='form-area'>
         <form onSubmit={handleFormSubmit}>
             <div className='field'>
-                <label className='label'>Username</label>
+                <label className='label has-text-white is-size-4'>Username</label>
                 <div className='control'>
                     <input
-                    className='input'
+                    className='input has-background-white has-text-black'
                     placeholder='Username'
                     name='username'
                     value={formState.username}
@@ -60,10 +64,10 @@ export default function UpdateUser() {
                 </div>
             </div>
             <div className='field'>
-                <label className='label'>Email</label>
+                <label className='label has-text-white is-size-4'>Email</label>
                 <div className='control'>
                     <input
-                    className='input'
+                    className='input has-background-white has-text-black'
                     placeholder='Email'
                     name='email'
                     value={formState.email}
@@ -73,10 +77,10 @@ export default function UpdateUser() {
                 </div>
             </div>
             <div className='field'>
-                <label className='label'>Password</label>
+                <label className='label has-text-white is-size-4'>Password</label>
                 <div className='control'>
                     <input
-                    className='input'
+                    className='input has-background-white has-text-black'
                     placeholder='Password'
                     name='password'
                     value={formState.password}
@@ -85,8 +89,10 @@ export default function UpdateUser() {
                     />
                 </div>
             </div>
-            <button className='button' type='submit'>Update</button>
+            <button id='finalUpdate-btn' className='button' type='submit'>Update</button>
         </form>
+    </div>
+    </div>
     </div>
     );
 }

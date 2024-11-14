@@ -7,6 +7,7 @@ export default function Login() {
         email: '', 
         password: '',
     });
+    const [loggedIn, setLoggedIn] = useState(false);
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -21,7 +22,10 @@ export default function Login() {
         api.post('/users/login', formState)
         .then((response) => {
             alert('Logged In');
+            setLoggedIn(true);
             localStorage.setItem('User-Data', JSON.stringify(formState));
+            localStorage.setItem('LoggedIn', JSON.stringify(true));
+            window.location.href = '/'; 
             console.log(response);
         })
         .catch((err) => {
@@ -32,15 +36,14 @@ export default function Login() {
 
     return (
         <div className='login-area'>
-            <form onSubmit={handleFormSubmit}>
+            <form id='login-form' onSubmit={handleFormSubmit}>
                 {error && <div className="error-message">{error}</div>} 
                 
                 <div className='field'>
-                    <label className='label'>Email</label>
+                    <label className='label has-text-black is-size-5'>Email</label>
                     <div className='control'>
                         <input
                             className='input'
-                            placeholder='Email'
                             name='email'
                             value={formState.email}
                             onChange={handleInputChange}
@@ -50,11 +53,10 @@ export default function Login() {
                 </div>
 
                 <div className='field'>
-                    <label className='label'>Password</label>
+                    <label className='label has-text-black is-size-5'>Password</label>
                     <div className='control'>
                         <input
                             className='input'
-                            placeholder='Password'
                             name='password'
                             value={formState.password}
                             onChange={handleInputChange}
@@ -63,7 +65,7 @@ export default function Login() {
                     </div>
                 </div>
 
-                <button className='button' type='submit'>Login</button>
+                <button id='login-btn' className='button' type='submit'>Login</button>
             </form>
         </div>
     );

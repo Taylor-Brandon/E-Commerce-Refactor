@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
+import TagForm from './tagForm';
 import api from '../utils/api';
 
 export default function TagList() {
@@ -28,16 +29,23 @@ export default function TagList() {
         }
 
     return (
+        <div>
         <div className='tag-list'>
-             <ul>
+             <ul className='tag-items'>
                 {tag.map((tag) => (
-                    <li key={tag.id}>
-                        {tag.tag_name}
-                        <button className='button' onClick={() => handleTagDelete(tag.id)}>Delete</button>
-                        <Link id="edit-btn" to={`/tags/${tag.id}`}>Edit</Link>
+                    <li id='tag-lines' key={tag.id}>
+                       <p id='tag-name'>{tag.tag_name}</p>
+                        <button id='tag-del' className='button' onClick={() => handleTagDelete(tag.id)}><i className="bi bi-trash3"></i></button>
+                        <Link id="edit-btn" to={`/tags/${tag.id}`}><i className="bi bi-pencil-square"></i></Link>
                     </li>
                 ))}
             </ul>
+        </div>
+        <div className='tag-area'>
+        <div className='tag-form'>
+            <TagForm />
+        </div>
+        </div>
         </div>
     );
 }

@@ -49,18 +49,21 @@ export default function ProductList() {
         localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
     };
 
-    const handleAddProduct = (product) => {
-        const updatedAdded = [...added]; 
-        const existingProductIndex = updatedAdded.findIndex(add => add.id === product.id);
-        if (existingProductIndex > -1) {
-            updatedAdded[existingProductIndex].quantity += 1;
-        } else {
-            updatedAdded.push({ ...product, quantity: 1 });
-        }
-        setAdded(updatedAdded);
-        localStorage.setItem('added', JSON.stringify(updatedAdded));
-    };
+const handleAddProduct = (product) => {
+    const { id, product_name, price, quantity } = product;
+    const updatedAdded = [...added];
+    const existingProductIndex = updatedAdded.findIndex((add) => add.id === id);
     
+    if (existingProductIndex > -1) {
+        updatedAdded[existingProductIndex].quantity += 1;
+    } else {
+        updatedAdded.push({ id, product_name, price, quantity: 1 });
+    }
+
+    setAdded(updatedAdded);
+    localStorage.setItem('added', JSON.stringify(updatedAdded));
+};
+
    
     const removeFavorite = (productId) => {
         const updatedFavorites = favorites.filter(fav => fav.id !== productId);
@@ -68,33 +71,50 @@ export default function ProductList() {
         localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
     };
 
+
     return (
-        <div>
-            <h2>Products</h2>
-            <h2>Favorited products: {favorites.length}</h2>
-            {error && <p style={{ color: 'red' }}>{error}</p>}
-            <ul>
-                {products.map((product) => (
-                    <li key={product.id}>
-                        {product.product_name}, ${product.price}, {product.category?.category_name}
-                        <button 
-                            className='button' 
-                            onClick={() => handleProductDelete(product.id)}
-                        >
-                            Delete
-                        </button>
-                        <button className='button' onClick={() => handleAddProduct(product)}>+</button>
-                        <button 
-                            className='button' 
-                            onClick={() => handleFavoriteProduct(product)}
-                        >
-                            {favorites.some(fav => fav.id === product.id) ? 'Unfavorite' : 'Favorite'}
-                        </button>
-                        <Link id="edit-btn" to={`/products/${product.id}`}>Edit</Link>
-                    </li>
-                ))}
-            </ul>
-            <Cart added={added}/>
-        </div>
+        <div className='productList'>
+            <div className='productList-area'>
+                <div className='productPage-list'>
+                    <ul>
+                        {products.map((product) => (
+                            <li key={product.id}>
+                                <a href={`/productInfo/${product.id}`}>
+                                <img
+                                    className='productPage-img'
+                                    src={`http://localhost:3001${product.productImage}`}
+                                    alt={product.product_name} 
+                                    style={{ width: '300px', height: '400px' }} 
+                                />
+                                </a>
+                                <div className='product-data'>
+                                    <p>{product.product_name}</p>
+                                    <p> ${product.price} USD</p>
+                                    <p>{product.category?.category_name}</p>
+                                    <p>{product.stock} left in stock</p>
+                                </div>
+                                <div className='actions'>
+                                    <button id='productPage-del' className='button' onClick={() => handleProductDelete(product.id)}><i className="bi bi-trash3"></i></button>
+                                    <button
+                                        id='productPage-favorite'
+                                        onClick={() => handleFavoriteProduct(product)} 
+                                        style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
+                                        <i className={`bi ${favorites.some(fav => fav.id === product.id) ? 'bi-heart-fill' : 'bi-heart'}`} 
+                                            style={{ color: 'red', fontSize: '1.5em' }}></i>
+                                    </button>
+                                    <div className='edit-area'>
+                                        <Link id="edit-btn" to={`/products/${product.id}`}><i className="bi bi-pencil-square"></i></Link>
+                                    </div>
+                                    <button id='product-addCart' className='button' onClick={() => handleAddProduct({ id: product.id, product_name: product.product_name, price: product.price, quantity: product.quantity })}>
+                                    Add to Cart
+                                    </button>
+                                </div>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </div>
+            </div>
     );
 }
+

@@ -1,13 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../utils/api';
-import Checkout from '../components/checkout';
+import Nav from '../components/nav';
+import Img from '../image/header.jpg';
 
 export default function Homepage() {
     const [products, setProducts] = useState([]);
     const [error, setError] = useState('');
+    const [loggedIn, setLoggedIn] = useState(false);
 
     useEffect(() => {
+       
+        const storedStatus = JSON.parse(localStorage.getItem('LoggedIn')) || false;
+        setLoggedIn(storedStatus);
+
+       
         api.get('/products')
             .then((response) => setProducts(response.data))
             .catch((error) => {
@@ -19,46 +26,70 @@ export default function Homepage() {
     const handleLogout = (e) => {
         e.preventDefault();
         api.post('/users/logout')
-        .then(() => {
-            alert('Goodbye!');
-            window.location.href = '/login';
-            localStorage.clear();
-        })
-        .catch((err) => {
-            console.log(err);
-        })
-    }
+            .then(() => {
+                alert('Goodbye!');
+                window.location.href = '/login'; 
+                localStorage.removeItem('LoggedIn'); 
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    };
+
     return (
         <div>
-            <nav>
-                <ul>
-                    <li><Link to="/categories">Catgeories</Link></li>
-                    <li><Link to="/tags">Tags</Link></li>
-                    <li><Link to="/products">Products</Link></li>
-                </ul>
-                <ul>
-                    <li>
-                        <Link to='/signup'>Sign Up</Link>
-                    </li>
-                    <li>
-                        <Link to='/login'>Login</Link>
-                    </li>
-                </ul>
-                <button onClick={handleLogout}>Logout</button>
-            </nav>
-            <h2>Products</h2>
-            {error && <p>{error}</p>}
-            <ul>
-                {products.map((product) => (
-                    <li key={product.id}>
-                        {product.product_name}, ${product.price}, {product.category.category_name}
-                    </li>
-                ))}
-            </ul>
-            <Checkout/>
+            <Nav />
+            {loggedIn ? (
+                <div>
+                    <div className='info-section'>
+                        <div className='text-area'>
+                        <div className='paragraph-section'>
+                            <h2 id='info-header'>About Us</h2>
+                            <p id='info-par'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                            <div className='btn-area'>
+                            <Link id='shop' to='products'>Explore</Link>
+                            </div>
+                            </div>
+                            </div>
+                            <div className='img-section'>
+                                <img id='img' src={Img} alt="Info-Img"></img>
+                                </div>
+                        </div>
+                        <div className='home-main'>
+                        <div className='product-section'>
+                    <ul>
+                        {products.map((product) => (
+                            <li className='home-product' key={product.id}>
+                                <div className='productImg-area'>
+                                    <a id='product-link' href={`/productInfo/${product.id}`}>
+                                <img
+                                    className='product-img'
+                                    src={`http://localhost:3001${product.productImage}`}
+                                    alt={product.product_name}
+                                    style={{ width: '300px', height: '400px' }}
+                                />
+                                </a>
+                                </div>
+                                <p className='product-text'>{product.product_name}, ${product.price}, {product.category.category_name}</p>
+                            </li>
+                        ))}
+                    </ul>
+                    </div>
+                </div>
+                </div>
+            ) : (
+                <h2 id='home-error'>Please log in to view products.</h2>
+            )}
         </div>
     );
 }
+
 
 
 

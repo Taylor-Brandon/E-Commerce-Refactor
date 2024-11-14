@@ -8,6 +8,7 @@ export default function UpdateProduct() {
         product_name: '',
         price: '',
         stock: '',
+        productImage: '',
         category_id: '',
         tagIds: [],
     });
@@ -21,6 +22,7 @@ export default function UpdateProduct() {
                     product_name: response.data.product_name,
                     price: response.data.price,
                     stock: response.data.stock,
+                    productImage: response.data.productImage,
                     category_id: response.data.category_id,
                     tagIds: response.data.tagIds || [],
                 });
@@ -40,6 +42,13 @@ export default function UpdateProduct() {
         setNewProduct({
             ...newProduct,
             [name]: newValue,
+        });
+    };
+    const handleFileChange = (e) => {
+        const file = e.target.files[0];
+        setNewProduct({
+            ...newProduct,
+            productImage: file,  
         });
     };
     const handleTagChange = (e) => {
@@ -104,6 +113,18 @@ export default function UpdateProduct() {
                             name='stock'
                             value={newProduct.stock}
                             onChange={handleChange}
+                        />
+                    </div>
+                </div>
+                <div className='field'>
+                    <label className='label'>Product Image</label>
+                    <div className='control'>
+                        <input
+                            className='input'
+                            type='file'
+                            placeholder='Image'
+                            name='productImage'
+                            onChange={handleFileChange}
                         />
                     </div>
                 </div>

@@ -8,6 +8,8 @@ export default function Signup() {
         email: '',
         password: '',
     });
+    const [signedIn, setSignedIn] = useState(false);
+
     const handleInputChange = (e) => {
         const {name, value} = e.target;
 
@@ -20,8 +22,11 @@ export default function Signup() {
         e.preventDefault();
         api.post('/users/signup', formState)
         .then((response) => {
+            setSignedIn(true);
             alert('Successfully Signed up!');
             localStorage.setItem('User-Data', JSON.stringify(formState));
+            localStorage.setItem('LoggedIn', JSON.stringify(true));
+            window.location.href = '/'; 
             console.log(response);
         })
         .catch((err) => {
@@ -30,14 +35,13 @@ export default function Signup() {
         });
     }
     return (
-        <div className='form-area'>
-            <form onSubmit={handleFormSubmit}>
+        <div className='signForm-area'>
+            <form className="signup-form" onSubmit={handleFormSubmit}>
                 <div className='field'>
-                    <label className='label'>Username</label>
+                    <label className='label has-text-black is-size-5'>Username</label>
                     <div className='control'>
                         <input
                         className='input'
-                        placeholder='Username'
                         name='username'
                         value={formState.username}
                         onChange={handleInputChange}
@@ -46,11 +50,10 @@ export default function Signup() {
                     </div>
                 </div>
                 <div className='field'>
-                    <label className='label'>Email</label>
+                    <label className='label has-text-black is-size-5'>Email</label>
                     <div className='control'>
                         <input
                         className='input'
-                        placeholder='Email'
                         name='email'
                         value={formState.email}
                         onChange={handleInputChange}
@@ -59,11 +62,10 @@ export default function Signup() {
                     </div>
                 </div>
                 <div className='field'>
-                    <label className='label'>Password</label>
+                    <label className='label has-text-black is-size-5'>Password</label>
                     <div className='control'>
                         <input
                         className='input'
-                        placeholder='Password'
                         name='password'
                         value={formState.password}
                         onChange={handleInputChange}
@@ -71,7 +73,7 @@ export default function Signup() {
                         />
                     </div>
                 </div>
-                <button className='button' type='submit'>Sign Up</button>
+                <button id='sign-btn' className='button' type='submit'>Sign Up</button>
             </form>
         </div>
     );

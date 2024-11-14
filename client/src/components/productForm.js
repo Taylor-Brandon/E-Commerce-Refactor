@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import api from '../utils/api';
+import Nav from './nav';
 
 export default function ProductForm() {
     const [formState, setFormState] = useState({
         product_name: '',
         price: '',
         stock: '',
+        productImage: '',
         category_id: '',
         tagIds: '',
     });
@@ -22,6 +24,14 @@ export default function ProductForm() {
         });
     };
 
+    const handleFileChange = (e) => {
+        const file = e.target.files[0];
+        setFormState({
+            ...formState,
+            productImage: file,  
+        });
+    };
+
     const handleFormSubmit = (e) => {
         e.preventDefault();
 
@@ -32,6 +42,7 @@ export default function ProductForm() {
                     product_name: '',
                     price: '',
                     stock: '',
+                    productImage: '',
                     category_id: '',
                     tagIds: '',
                 }); 
@@ -44,76 +55,85 @@ export default function ProductForm() {
 
     return (
         <div>
-            <h2>Add a product</h2>
+        <Nav />
+        <div className='productForm-area'>
+            <div className='productForm'>
             <form className='form' onSubmit={handleFormSubmit}>
                 <div className='field'>
-                    <label className='label'>Product Name</label>
+                    <label className='label has-text-white is-size-4'>Product Name</label>
                     <div className='form-control'>
                         <input
-                            className='input'
+                            className='input has-background-white has-text-black'
                             value={formState.product_name}
                             name="product_name"
                             type="text"
                             onChange={handleInputChange}
-                            placeholder="Product Name"
                         />
                     </div>
                 </div>
                 <div className='field'>
-                    <label className='label'>Price</label>
+                    <label className='label has-text-white is-size-4'>Price</label>
                     <div className='form-control'>
                         <input
-                            className='input'
+                            className='input has-background-white has-text-black'
                             value={formState.price}
                             name="price"
                             type="number"
                             onChange={handleInputChange}
-                            placeholder="Price"
                         />
                     </div>
                 </div>
                 <div className='field'>
-                    <label className='label'>Stock</label>
+                    <label className='label has-text-white is-size-4'>Stock</label>
                     <div className='form-control'>
                         <input
-                            className='input'
+                            className='input has-background-white has-text-black'
                             value={formState.stock}
                             name="stock"
                             type="number"
                             onChange={handleInputChange}
-                            placeholder="Stock"
                         />
                     </div>
                 </div>
                 <div className='field'>
-                    <label className='label'>Category Id</label>
+                    <label className='label has-text-white is-size-4'>Product Images</label>
                     <div className='form-control'>
                         <input
-                            className='input'
+                            className='input has-background-white has-text-black'
+                            name="productImage"
+                            type="file"
+                            onChange={handleFileChange}
+                        />
+                    </div>
+                </div>
+                <div className='field'>
+                    <label className='label has-text-white is-size-4'>Category Id</label>
+                    <div className='form-control'>
+                        <input
+                            className='input has-background-white has-text-black'
                             value={formState.category_id}
                             name="category_id"
                             type="number"
                             onChange={handleInputChange}
-                            placeholder="Category Id"
                         />
                     </div>
                 </div>
                 <div className='field'>
-                    <label className='label'>Tag Id</label>
+                    <label className='label has-text-white is-size-4'>Tag Id</label>
                     <div className='form-control'>
                         <input
-                            className='input'
+                            className='input has-background-white has-text-black'
                             value={formState.tagIds}
                             name="tagIds"
                             type="number"
                             onChange={handleInputChange}
-                            placeholder="Tag Id"
                         />
                     </div>
                 </div>
-                <button className='button' type='submit'>Add</button>
-                {error && <p style={{ color: 'red' }}>{error}</p>}
+                <button id='productAdd-btn' className='button' type='submit'>Add</button>
             </form>
+            </div>
+        </div>
         </div>
     );
 }

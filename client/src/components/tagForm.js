@@ -31,17 +31,17 @@ export default function TagForm() {
 
     return (
         <form className='form' onSubmit={handleFormSubmit}>
-            <div className='field'>
-                <div className='label'>Tag Name</div>
+            <div className='field mt-4 ml-3 mr-3'>
+                <div className='label has-text-white ml-2 is-size-4'>Tag Name</div>
                 <input
-                className='input'
+                className='input has-background-white'
                 onChange={handleInputChange}
                 type="text"
                 name="tag_name"
                 value={formState.tag_name}
                 />
             </div>
-            <button className='button' type="submit">Add</button>
+            <button id='tag-btn' className='button' type="submit">Add</button>
         </form>
     );
 }

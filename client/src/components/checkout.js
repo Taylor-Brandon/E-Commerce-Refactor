@@ -40,7 +40,7 @@ export default function Checkout({ cartProducts }) {
     };
     return (
         <div>
-            <button className='button' onClick={handleButtonResponse}>Checkout</button>
+            <button className='button is-primary' onClick={handleButtonResponse}>Checkout</button>
         </div>
     );
 }
