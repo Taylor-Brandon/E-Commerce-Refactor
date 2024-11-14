@@ -32,16 +32,16 @@ export default function CategoryForm() {
     return (
         <form className='form' onSubmit={handleFormSubmit}>
             <div className='field'>
-                <div className='label'>Category Name</div>
+                <div className='label is-size-4 has-text-white'>Category Name</div>
                 <input
-                className='input'
+                className='input has-background-white has-text-black'
                 onChange={handleInputChange}
                 type="text"
                 name="category_name"
                 value={formState.category_name}
                 />
             </div>
-            <button className='button' type="submit">Add</button>
+            <button id='catForm-btn' className='button' type="submit">Add</button>
         </form>
     );
 }

@@ -5,10 +5,10 @@ const categoryData = [
     category_name: 'Shirts',
   },
   {
-    category_name: 'Shorts',
+    category_name: 'Skirts',
   },
   {
-    category_name: 'Music',
+    category_name: 'Coats',
   },
   {
     category_name: 'Hats',
@@ -17,7 +17,7 @@ const categoryData = [
     category_name: 'Shoes',
   },
   {
-    category_name: 'Socks',
+    category_name: 'Sets',
   }
 ];
 

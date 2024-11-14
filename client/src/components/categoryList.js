@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import api from '../utils/api';
+import CategoryForm from './categoryForm';
 
 export default function CatgeoryList() {
     const [categories, setCategories] = useState([]);
@@ -28,16 +29,27 @@ export default function CatgeoryList() {
         }
 
     return (
+        <div>
         <div className='category-list'>
-             <ul>
+             <ul className='categories'>
                 {categories.map((category) => (
                     <li key={category.id}>
-                        {category.category_name}
-                        <button className='button' onClick={() => handleCategoryDelete(category.id)}>Delete</button>
-                        <Link id="edit-btn" to={`/categories/${category.id}`}>Edit</Link>
+                        <p id='category-name'>{category.category_name}</p>
+                        <button id='category-button' className='button' onClick={() => handleCategoryDelete(category.id)}><i className="bi bi-trash3"></i></button>
+                        <div className='edit-list'>
+                        <Link id="edit-btn" to={`/categories/${category.id}`}><i className="bi bi-pencil-square"></i></Link>
+                    </div>
                     </li>
                 ))}
             </ul>
+        </div>
+        <div className='form-container'>
+        <div className='form-area'>
+        <div className='category-form'>
+        <CategoryForm />
+        </div>
+        </div>
+        </div>
         </div>
     );
 }

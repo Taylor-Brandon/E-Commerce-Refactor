@@ -8,7 +8,6 @@ export default function SearchProducts() {
     const [filteredProducts, setFilteredProducts] = useState([]); 
 
     useEffect(() => {
-       
         api.get('/products')
             .then((response) => {
                 setProducts(response.data);
@@ -22,8 +21,6 @@ export default function SearchProducts() {
     const handleChange = (event) => {
         const searchInput = event.target.value;
         setSearch(searchInput);
-
-       
         const filtered = products.filter((product) => {
             return (
                 product.product_name.toLowerCase().includes(searchInput.toLowerCase()) ||
@@ -36,7 +33,7 @@ export default function SearchProducts() {
     };
 
     return (
-        <div>
+        <div div className='search-form'>
             <div className="form">
                 <form className="field" onSubmit={(e) => e.preventDefault()}>
                     <div className="form-control">
@@ -45,7 +42,7 @@ export default function SearchProducts() {
                             type="text"
                             value={search}
                             onChange={handleChange}
-                            placeholder="Enter Product name, price, or category name"
+                            placeholder="Search"
                         />
                     </div>
                 </form>
@@ -64,7 +61,9 @@ export default function SearchProducts() {
                     <ul id="product-results">
                         {filteredProducts.map((product) => (
                             <li id="indiv-product" key={product.id}>
+                                <a href={`/productInfo/${product.id}`}>
                                 {product.product_name} - ${product.price}
+                                </a>
                             </li>
                         ))}
                     </ul>
