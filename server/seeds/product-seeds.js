@@ -8,6 +8,7 @@ const productData = [
     stock: 14,
     productImage: '/images/blue.jpg',
     category_id: 3,
+    description: 'Description'
   },
   {
     product_name: 'Denim Jacket',
