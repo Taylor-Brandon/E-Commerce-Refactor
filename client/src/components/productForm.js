@@ -10,6 +10,7 @@ export default function ProductForm() {
         productImage: '',
         category_id: '',
         tagIds: '',
+        description: '',
     });
     const [error, setError] = useState('');
 
@@ -45,6 +46,7 @@ export default function ProductForm() {
                     productImage: '',
                     category_id: '',
                     tagIds: '',
+                    description: '',
                 }); 
             })
             .catch((error) => {
@@ -130,6 +132,18 @@ export default function ProductForm() {
                         />
                     </div>
                 </div>
+                <div className='field'>
+                    <label className='label has-text-white is-size-4'>Description</label>
+                    <div className='form-control'>
+                        <input
+                            className='input has-background-white has-text-black'
+                            value={formState.description}
+                            name="description"
+                            type="text"
+                            onChange={handleInputChange}
+                        />
+                    </div>
+                    </div>
                 <button id='productAdd-btn' className='button' type='submit'>Add</button>
             </form>
             </div>
