@@ -11,6 +11,7 @@ export default function UpdateProduct() {
         productImage: '',
         category_id: '',
         tagIds: [],
+        description: '',
     });
     const [error, setError] = useState('');
 
@@ -25,6 +26,7 @@ export default function UpdateProduct() {
                     productImage: response.data.productImage,
                     category_id: response.data.category_id,
                     tagIds: response.data.tagIds || [],
+                    description: response.data.description,
                 });
             })
             .catch((error) => {
@@ -156,6 +158,19 @@ export default function UpdateProduct() {
                             <option value="2">Tag 2</option>
                             <option value="3">Tag 3</option>
                         </select>
+                    </div>
+                </div>
+                <div className='field'>
+                    <label className='label'>Description</label>
+                    <div className='control'>
+                        <input
+                            className='input'
+                            type='type'
+                            placeholder='description'
+                            name='description'
+                            value={newProduct.description}
+                            onChange={handleChange}
+                        />
                     </div>
                 </div>
                 <button className='button' type='submit'>Update</button>
