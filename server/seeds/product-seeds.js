@@ -8,6 +8,7 @@ const productData = [
     stock: 14,
     productImage: '/images/blue.jpg',
     category_id: 3,
+    description: '69% Cotton, 31% nylon; lining 78% polyester.'
   },
   {
     product_name: 'Denim Jacket',
@@ -15,6 +16,7 @@ const productData = [
     stock: 25,
     productImage: '/images/denim.jpg',
     category_id: 3,
+    description: '52% Polyester, 5% cotton, 3% viscose; 50% Cotton',
   },
   {
     product_name: 'Green Jacket',
@@ -22,6 +24,7 @@ const productData = [
     stock: 12,
     productImage: '/images/green.jpg',
     category_id: 3,
+    description: '100% Nylon',
   },
   {
     product_name: 'Pattern Set',
@@ -29,6 +32,7 @@ const productData = [
     stock: 50,
     productImage: '/images/pattern.jpg',
     category_id: 6,
+    description: '80% Cotton; 20% Recycled Cotton',
   },
   {
     product_name: 'Black Skirt',
@@ -36,6 +40,7 @@ const productData = [
     stock: 22,
     productImage: '/images/skirt.jpg',
     category_id: 2,
+    description: '61% Polyester, 34% nylon; 5% Spandex',
   },
   {
     product_name: 'White Blouse',
@@ -43,20 +48,23 @@ const productData = [
     stock: 22,
     productImage: '/images/whiteShirt.jpg',
     category_id: 1,
+    description: '100% Cotton',
   },
   {
     product_name: 'Green Vest',
     price: 150.99,
     stock: 25,
     productImage: '/images/vest.jpg',
-    category_id: 2
+    category_id: 2,
+    description: '85% Wool; 15% Satin'
   },
   {
-    product_name: 'Grey Set',
+    product_name: 'Grey Jacket',
     price: 250.99,
     stock: 30,
     productImage: '/images/grey.jpg',
     category_id: 6,
+    description: '100% Wool'
   },
   {
     product_name: 'White Blazer',
@@ -64,6 +72,7 @@ const productData = [
     stock: 10,
     productImage: '/images/flower.jpg',
     category_id: 1,
+    description: '55% Polyester, 38% wool, 5% acrylic'
   },
   {
     product_name: 'Blue Blazer',
@@ -71,6 +80,7 @@ const productData = [
     stock: 30,
     productImage: '/images/blazer.jpg',
     category_id: 1,
+    description: '55% Polyester, 38% wool, 5% acrylic'
   },
   {
     product_name: 'Blue Suit',
@@ -78,6 +88,7 @@ const productData = [
     stock: 5,
     productImage: '/images/suit.jpg',
     category_id: 6,
+    description: '55% Polyester, 38% wool, 5% acrylic, 2% nylon'
   },
   {
     product_name: 'Plaid Blazer',
@@ -85,6 +96,7 @@ const productData = [
     stock: 17,
     productImage: '/images/plaid.jpg',
     category_id: 1,
+    description: '100% Wool'
   },
 ];
 

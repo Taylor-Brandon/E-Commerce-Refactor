@@ -92,6 +92,7 @@ const handleAddProduct = (product) => {
                                     <p> ${product.price} USD</p>
                                     <p>{product.category?.category_name}</p>
                                     <p>{product.stock} left in stock</p>
+                                    <p>{product.description}</p>
                                 </div>
                                 <div className='actions'>
                                     <button id='productPage-del' className='button' onClick={() => handleProductDelete(product.id)}><i className="bi bi-trash3"></i></button>

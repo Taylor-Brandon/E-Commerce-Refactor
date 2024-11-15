@@ -15,6 +15,7 @@ export default function ProductInfo() {
         productImage: '',
         category_id: '',
         tagIds: [],
+        description: '',
     });
 
     useEffect(() => {
@@ -28,6 +29,7 @@ export default function ProductInfo() {
                     productImage: response.data.productImage,
                     category_id: response.data.category_id,
                     tagIds: response.data.tagIds || [],
+                    description: response.data.description,
                 });
             })
             .catch((err) => {
@@ -85,6 +87,7 @@ export default function ProductInfo() {
                     </button>
                     <p id='price'>${productData.price} USD</p>
                     <p id='stock'>{productData.stock} left in stock</p>
+                    <p id='description'>{productData.description}</p>
                     <button id='add-product' className='button' onClick={handleAddProduct}>
                         Add to cart
                     </button>

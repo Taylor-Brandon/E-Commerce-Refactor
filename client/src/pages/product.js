@@ -54,9 +54,7 @@ export default function Product() {
                             <ul>
                             {favorites.map((favorite) => (
                     <li key={favorite.id}>
-                        <a id='fav-link' href={`/productInfo/${favorite.id}`}>
-                        <p>{favorite.product_name} - {favorite.price} USD</p>
-                                </a>
+                        <a id='fav-link' href={`/productInfo/${favorite.id}`}><p>{favorite.product_name} - {favorite.price} USD</p></a>
                     </li>
                 ))}
             </ul>
