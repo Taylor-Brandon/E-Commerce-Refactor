@@ -24,6 +24,7 @@ export default function SearchProducts() {
         const filtered = products.filter((product) => {
             return (
                 product.product_name.toLowerCase().includes(searchInput.toLowerCase()) ||
+                product.description.toLowerCase().includes(searchInput.toLowerCase()) ||
                 product.price.toString().includes(searchInput) ||
                 (product.category && product.category.category_name.toLowerCase().includes(searchInput.toLowerCase()))
             );
