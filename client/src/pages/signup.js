@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { Link } from 'react-router-dom';
 import api from '../utils/api';
 
 export default function Signup() {
@@ -35,6 +36,7 @@ export default function Signup() {
         });
     }
     return (
+        <div>
         <div className='signForm-area'>
             <form className="signup-form" onSubmit={handleFormSubmit}>
                 <div className='field'>
@@ -75,6 +77,8 @@ export default function Signup() {
                 </div>
                 <button id='sign-btn' className='button' type='submit'>Sign Up</button>
             </form>
+        </div>
+        <p id='check-account'>Already have an account? <Link id='log-link' to='/login'>Login</Link></p>
         </div>
     );
 }

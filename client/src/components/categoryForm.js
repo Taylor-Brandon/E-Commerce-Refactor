@@ -30,10 +30,12 @@ export default function CategoryForm() {
     }
 
     return (
+        <div className='category-form'>
         <form className='form' onSubmit={handleFormSubmit}>
             <div className='field'>
                 <div className='label is-size-4 has-text-white'>Category Name</div>
                 <input
+                id='cat-input'
                 className='input has-background-white has-text-black'
                 onChange={handleInputChange}
                 type="text"
@@ -43,5 +45,6 @@ export default function CategoryForm() {
             </div>
             <button id='catForm-btn' className='button' type="submit">Add</button>
         </form>
+        </div>
     );
 }

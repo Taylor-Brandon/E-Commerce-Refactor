@@ -104,7 +104,7 @@ const handleAddProduct = (product) => {
                                             style={{ color: 'red', fontSize: '1.5em' }}></i>
                                     </button>
                                     <div className='edit-area'>
-                                        <Link id="edit-btn" to={`/products/${product.id}`}><i className="bi bi-pencil-square"></i></Link>
+                                        <Link id="productEdit-btn" to={`/products/${product.id}`}><i className="bi bi-pencil-square"></i></Link>
                                     </div>
                                     <button id='product-addCart' className='button' onClick={() => handleAddProduct({ id: product.id, product_name: product.product_name, price: product.price, quantity: product.quantity })}>
                                     Add to Cart

@@ -36,7 +36,9 @@ export default function TagList() {
                     <li id='tag-lines' key={tag.id}>
                        <p id='tag-name'>{tag.tag_name}</p>
                         <button id='tag-del' className='button' onClick={() => handleTagDelete(tag.id)}><i className="bi bi-trash3"></i></button>
-                        <Link id="edit-btn" to={`/tags/${tag.id}`}><i className="bi bi-pencil-square"></i></Link>
+                        <div className='tagEdit-area'>
+                        <Link id="tagEdit-btn" to={`/tags/${tag.id}`}><i className="bi bi-pencil-square"></i></Link>
+                        </div>
                     </li>
                 ))}
             </ul>

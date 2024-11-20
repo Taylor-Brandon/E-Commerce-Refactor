@@ -21,35 +21,13 @@ nav{
 li{
     list-style: none;
 }
-#category{
+.nav-link {
     text-decoration: none;
     margin-right: 20px;
     color: black;
 }
-#tag{
-    text-decoration: none;
-    margin-right: 20px;
-    color: black;
-}
-#product{
-    text-decoration: none;
-    margin-right: 20px;
-    color: black;
-}
-#logout{
-    margin-right: 20px;
-}
-#signup{
-    color: black;
-    margin-right: 20px;
-}
-#login{
-    color: black;
-    margin-right: 20px;
-}
-#profile{
-    color: black;
-    margin-right: 20px;
+#logout {
+    margin-right: 20px; 
 }
 #home-error{
     font-family: "Bebas Neue", sans-serif;
@@ -68,6 +46,7 @@ li{
     height: 800px;
     width: 1145px;
     text-align: center;
+    position: sticky;
 }
 #info-header{
     font-size: 35px;
@@ -78,6 +57,14 @@ li{
     margin-left: 200px;
     margin-right: 200px;
     font-size: 20px;
+}
+#shop{
+    margin-top: 30px;
+    color:white;
+    background-color: black;
+    border-radius: 8px;
+    font-size: 25px;
+    padding: 5px;
 }
 .img-section{
     margin-top: -800px;
@@ -91,19 +78,14 @@ li{
     flex-wrap: wrap;
     justify-content: center; 
     padding: 0;
-    margin: 0;
+    margin-top: 50px;
     list-style: none;
 }
-.btn-area{
-    margin-top: 30px;
+#homeProduct-info{
+    margin-top: -3px;
 }
-#shop{
-    color:white;
-    background-color: black;
-    border: 1px solid black;
-    border-radius: 8px;
-    font-size: 25px;
-    padding: 5px;
+.product-text{
+    margin-top: -100px;
 }
 .home-product{
     flex: 1 1 250px; 
@@ -124,27 +106,40 @@ li{
     margin-top: 50px;
     border-radius: 20px;
     margin-bottom: 30px;
+    width: 300px;
+    height: 400px;
 }
 .product-text{
     font-family: "Bebas Neue", sans-serif;
     text-align: center;
+    color: white;
     font-size: 20px;
 }
-.product-information{
-    color: white;
-    font-family: "Bebas Neue", sans-serif;
+.productData-area{
     display: flex;
     justify-content: end;
-    align-items: center;
-    margin-top: 100px;
-    margin-right: 300px;
+}
+.top-area{
+    display: flex;
+    justify-content: end;
+}
+.cart-area{
+    display: flex;
+    justify-content: end;
+    margin-right: 15px;
+    color: white;
+    font-family: "Bebas Neue", sans-serif;
+}
+#cart-icon{
+    border: none;
+    margin-top: 10px;
+    font-size: 30px;
+}
+.product-information{
+    margin-right: 240px;
 }
 .product-text{
-    display: flex;
-    flex-direction: column;
-}
-.productData-area{
-    background-color: black;  
+    margin-top: 200px;
 }
 #productData-header{
     font-family: "Bebas Neue", sans-serif;
@@ -157,18 +152,18 @@ li{
 #stock{
     margin-bottom: 20px;
 }
-#add-product{
+#indAdd-product{
     width: 50%;
-    margin-left: 80px;
     font-size: 20px;
+    margin-top: 10px;
     background-color: white;
     color: black;
 }
 .img-container{
     background-color: white;
+    height: 100vh;
     width:50%;
-    height: 120vh;
-    margin-top: -376px;
+    margin-top: -618px;
 }
 #productData-img{
     margin-top: 140px;
@@ -177,67 +172,26 @@ li{
 }
 #favorite{
     margin-top: -65px;
-    margin-left: 280px;
 }
 #favorite:active {
     color: red;
     border: 0px solid black;
 }
-#add-product:hover{
+#indAdd-product:hover{
     background-color: black;
     color: white;
-}
-.cart-area{
-    display: flex;
-    justify-content: end;
-    color: white;
-    font-family: "Bebas Neue", sans-serif;
-    margin-right: 20px;
-}
-#cart-icon{
-    font-size: 27px;
-}
-#cart-length{
-    margin-left: -20px;
-    margin-top: 3px;
-    padding: 5px;
-    font-size: 13px;
 }
 #shop:hover{
     background-color: white;
     color: black;
 }
-#category:hover{
-    color: grey
-}
-#tag:hover{
-    color:grey;
-}
-#product:hover{
-    color: grey;
-}
-#signup:hover{
-    color: grey;
-}
-#login:hover{
-    color: grey;
-}
-#logout:hover{
-    color: grey;
-}
-#profile:hover{
-    color: grey;
-}
-#home-link:hover{
-    color: grey;
-}
-.product-img:hover{
-    margin-bottom: 5px;
-    box-shadow: 10px 10px white;
+#home-error{
+    font-family: "Bebas Neue", sans-serif;
+    margin-top: 100px;
+    font-size: 30px;
+    text-align: center;
 }
 .category-list{
-    background-color: black;
-    height: 100vh;
     width: 50%;
     display: flex;
     justify-content: center;
@@ -255,32 +209,30 @@ li{
 }
 #category-button{
     color: white;
+    border: none;
     font-size: 15px;
-    border: 0px solid black;
-    background-color: black;
     margin-top: -60px;
-    margin-left: 90px;
+    margin-left: 84px;
 }
 .edit-list{
     margin-top: -77px;
-}
-.form-container{
-    width: 50%;
-    height: 100vh;
-    background-color: white;
-    width: 50%;
-    height: 100vh;
-    margin-left: 840px;
-    margin-top: -962px;
-}
-.form-area{
-    display: flex;
-    justify-content: center;
 }
 #edit-btn{
     font-size: 15px;
     color: white;
     margin-left: 135px;
+}
+.categoryForm-container{
+    width: 50%;
+    height: 100vh;
+    background-color: white;
+    height: 100vh;
+    margin-left: 840px;
+    margin-top: -562px;
+}
+.catForm-area{
+    display: flex;
+    justify-content: center;
 }
 .category-form{
     border: 1px solid black;
@@ -296,36 +248,35 @@ li{
     background-color: black;
     color: white;
 }
-#catForm-btn:hover{
-    background-color: white;
-    color: black;
-}
-
 .tag-list{
     display: flex;
     justify-content: center;
     width: 50%;
     height: 100vh;
-    background-color: black;
     font-family: "Bebas Neue", sans-serif;
     color: white;
     font-size: 30px;
 }
 .tag-items{
     margin-top: 100px;
-
 }
 #tag-lines{
     border-bottom: 1px solid white;
 }
 #tag-del{
     border: none;
-    background-color: black;
-    margin-left: 110px;
-    margin-top: -40px;
+    margin-left: 120px;
+    margin-top: -30px;
+    padding: 0px;
 }
-#edit-btn{
-    margin-left: -2px;
+.tagEdit-area{
+    margin-left: 160px;
+    margin-top: -90px;
+    margin-bottom: 25px;
+}
+#tagEdit-btn{
+    color: white;
+    font-size: 15px;
 }
 .tag-area{
     width: 50%;
@@ -382,7 +333,8 @@ li{
     color: black;
 }
 .signForm-area{
-    background-color: black;
+    display: flex;
+    justify-content: center;
     height: 100vh;
 }
 .signup-form{
@@ -403,15 +355,24 @@ li{
     background-color: white;
     color: black;
 }
+#check-account{
+    color: white;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 20px;
+    margin-top: -440px;
+    text-align: center;
+}
+#log-link{
+    text-decoration: underline;
+    color: white;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 20px;
+}
 .productPage-list{
     width: 100%;
     height: 100vh;
     display: flex;
     justify-content: center;
-}
-.productList{
-    background-color: black;
-    height: 250vh;
 }
 .productPage-list ul {
     display: flex;
@@ -444,7 +405,6 @@ li{
 }
 #productPage-del{
     border: none;
-    background-color: black;
     font-size: 20px;
     margin-left: -100px;
 }
@@ -456,26 +416,22 @@ li{
 .edit-area{
     margin-top: -40px;
 }
-#edit-btn{
+#productEdit-btn{
     font-size: 20px;
     margin-left: 19px;
+    text-decoration: none;
+    color: white;
 }
 .productSearch-area{
-    background-color: black;
     display: flex;
     justify-content: end;
 }
 .search{
-    background-color: black;
     width: 15%;
     margin-top: 10px;
     margin-right: 15px;
 }
-.cart-area{
-    background-color: black;
-}
 #cart-btn{
-    background-color: black;
     font-size: 20px;
     border: none;
     margin-right: -20px;
@@ -483,12 +439,10 @@ li{
     height: 25%;
 }
 .fav-area{
-    background-color: black;
     display: flex;
     justify-content: end;
 }
 #fav-products{
-    background-color: black;
     border: none;
     margin-right: 290px;
     margin-top: -90px;
@@ -498,7 +452,6 @@ li{
 #product-addCart{
     margin-left: -60px;
     margin-top: 10px;
-    background-color: black;
     color: white;
     font-family: "Bebas Neue", sans-serif;
 }
@@ -512,6 +465,12 @@ li{
 #indiv-product{
     color: white;
     font-family: "Bebas Neue", sans-serif;
+    font-size: 20px;
+    text-decoration: none;
+}
+#search-product:hover{
+    background-color: white;
+    color: black;
 }
 .add-area{
     background-color: black;
@@ -521,22 +480,22 @@ li{
 #add-btn{
     font-size: 20px;
     color: white;
-    margin-right: 420px;
+    margin-right: 415px;
     margin-top: -83px;
 }
 .productPage-img:hover{
     margin-bottom: 5px;
     box-shadow: 10px 10px white;
 }
-.cart-header{
+#cart-header{
     color: white;
     font-family: "Bebas Neue", sans-serif;
     font-size: 30px;
 }
 #cart-del{
-    margin-left: 80px;
+    margin-left: 150px;
     border: none;
-    margin-top: -31px;
+    margin-top: -38px;
 }
 #cancel-btn{
     margin-left: 10px;
@@ -544,19 +503,18 @@ li{
 .productForm-area{
     display: flex;
     justify-content: center;
-    background-color: white;
     height: 100vh;
 }
 .productForm{
-    color: white;
-    background-color: black;
+    background-color: white;
+    color: black;
     font-family: "Bebas Neue", sans-serif;
     width: 50%;
     margin-top: 100px;
     border: 1px solid black;
     border-radius: 20px;
     padding: 20px;
-    height: 75%;
+    height: 85%;
 }
 #productAdd-btn{
     background-color: black;
@@ -585,15 +543,16 @@ li{
 }
 #profile-header{
     font-size: 35px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 #updateProfile-link{
     text-decoration: none;
-    margin-bottom: 20px;
+    color: black;
     font-size: 20px;
 }
 #delete-account{
     font-size: 20px;
+    margin-top: 10px;
 }
 .update-section{
     background-color: white;
@@ -626,6 +585,15 @@ li{
 #fav-link{
     font-family: "Bebas Neue", sans-serif;
     text-decoration: none;
+    color: white;
+    font-size: 25px;
+    text-align: center;
+}
+#cart-product{
+    text-decoration: none;
+    color: white;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 25px;
 }
 
 
@@ -636,3 +604,90 @@ li{
 
 
 
+
+
+
+#catForm-btn:hover{
+    background-color: white;
+    color: black;
+}
+#home-link:hover{
+    color: grey;
+}
+.nav-link:hover{
+    color: grey;
+}
+#logout:hover{
+    color: grey;
+}
+#shop:hover{
+    background-color: white;
+    color: black;
+}
+.product-img:hover{
+    margin-bottom: 5px;
+    box-shadow: 10px 10px white;
+}
+@media (max-width: 1429px) {
+    .paragraph-section{
+        width: auto;
+    }
+    #img{
+        display: none;
+    }
+    .product-section ul {
+        margin-top: 870px;
+    }
+    .category-list{
+        width: 25%;
+    }
+    .categoryForm-container{
+        margin-left: 500px;
+    }
+}
+@media (max-width: 950px) {
+    .categoryForm-container{
+        margin-left: 300px;
+    }
+}
+@media (max-width: 768px) {
+    #info-header {
+        font-size: 28px;
+    }
+
+    #info-par {
+        margin: 0 1rem;
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    #info-header {
+        font-size: 24px;
+    }
+
+    #info-par {
+        font-size: 16px;
+    }
+}
+@media (max-width: 480px) {
+    .product-img {
+        width: 120px;
+        height: 200px;
+    }
+}
+
+
+
+@media (max-width: 500px) {
+    .nav-link{
+        font-size: 10px;
+    }
+    #logout{
+        font-size: 10px;
+        margin-bottom: -5px;
+    }
+    #home-link{
+        font-size: 10px;
+    }
+}

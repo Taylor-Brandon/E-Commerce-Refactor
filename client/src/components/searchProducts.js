@@ -61,8 +61,8 @@ export default function SearchProducts() {
                     <div id="searchProduct-list">
                     <ul id="product-results">
                         {filteredProducts.map((product) => (
-                            <li id="indiv-product" key={product.id}>
-                                <a href={`/productInfo/${product.id}`}>
+                            <li key={product.id}>
+                                <a id="indiv-product" href={`/productInfo/${product.id}`}>
                                 {product.product_name} - ${product.price}
                                 </a>
                             </li>
