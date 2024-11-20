@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import Nav from '../components/nav';
+import Cart from '../components/cart';
 import api from '../utils/api';
 
 export default function ProductInfo() {
     const { productId } = useParams();
     const [favorites, setFavorites] = useState([]);
     const [added, setAdded] = useState([]);
+    const [isCartVisible, setIsCartVisible] = useState(false);
     const [productData, setProductData] = useState({
         id: '', 
         product_name: '',
@@ -67,14 +69,20 @@ export default function ProductInfo() {
         localStorage.setItem('added', JSON.stringify(updatedAdded));
     };
 
+    const toggleCartModal = () => {
+        setIsCartVisible(!isCartVisible);
+    };
+
     return (
         <div>
             <Nav />
-        <div className='productData-area'>
+            <div className='top-area'>
             <div className='cart-area'>
-                <p id='cart-icon'><i className="bi bi-cart"></i></p>
-                <p id='cart-length'>{added.length}</p>
+            <button id='cart-icon' className='button' onClick={toggleCartModal}><i className="bi bi-cart"></i></button>
+            {isCartVisible && <Cart added={added} toggle={toggleCartModal}/>}
             </div>
+            </div>
+        <div className='productData-area'>
             <div className='product-information'>
                 <div className='product-text'>
                     <h2 id='productData-header'>{productData.product_name}</h2>
@@ -88,9 +96,10 @@ export default function ProductInfo() {
                     <p id='price'>${productData.price} USD</p>
                     <p id='stock'>{productData.stock} left in stock</p>
                     <p id='description'>{productData.description}</p>
-                    <button id='add-product' className='button' onClick={handleAddProduct}>
+                    <button id='indAdd-product' className='button' onClick={handleAddProduct}>
                         Add to cart
                     </button>
+                    </div>
                 </div>
             </div>
             <div className='img-container'>
@@ -101,7 +110,6 @@ export default function ProductInfo() {
                     style={{ width: '400px', height: '550px' }}
                 />
             </div>
-        </div>
         </div>
     );
 }

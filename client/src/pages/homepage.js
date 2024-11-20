@@ -52,16 +52,13 @@ export default function Homepage() {
                             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
                             Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
                             Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                            <div className='btn-area'>
-                            <Link id='shop' to='products'>Explore</Link>
-                            </div>
+                            <Link className='button' id='shop' to='products'>Explore</Link>
                             </div>
                             </div>
                             <div className='img-section'>
                                 <img id='img' src={Img} alt="Info-Img"></img>
                                 </div>
                         </div>
-                        <div className='home-main'>
                         <div className='product-section'>
                     <ul>
                         {products.map((product) => (
@@ -72,16 +69,14 @@ export default function Homepage() {
                                     className='product-img'
                                     src={`http://localhost:3001${product.productImage}`}
                                     alt={product.product_name}
-                                    style={{ width: '300px', height: '400px' }}
                                 />
                                 </a>
                                 </div>
-                                <p className='product-text'>{product.product_name}, ${product.price}, {product.category.category_name}</p>
+                                <p id='homeProduct-info' className='product-text'>{product.product_name}, ${product.price}, {product.category.category_name}</p>
                             </li>
                         ))}
                     </ul>
                     </div>
-                </div>
                 </div>
             ) : (
                 <h2 id='home-error'>Please log in to view products.</h2>

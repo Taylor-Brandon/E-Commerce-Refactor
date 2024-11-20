@@ -41,7 +41,7 @@ export default function Profile() {
         <div className='profile-area'>
             <div className='profile-card'>
             <h1 id='profile-header'>{userData.username}</h1>
-            <p id='updateProfile-link'><Link to='/updateUser'>Update Your Profile</Link></p>
+            <p><Link id='updateProfile-link' to='/updateUser'>Update Your Profile</Link></p>
             <button id='delete-account' onClick={handleConfirmToggle}>Delete Your Account</button>
             </div>
             {showConfirm && (

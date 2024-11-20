@@ -27,7 +27,7 @@ export default function Cart({ added, toggle }) {
             <ul>
                 {cartProducts.map((product) => (
                     <li key={product.id}>
-                        <p>{product.product_name} X {product.quantity}</p>
+                       <a href={`/productInfo/${product.id}`}><p id='cart-product'>{product.product_name} X {product.quantity}</p></a>
                         <button id='cart-del' className="button" onClick={() => removeAdded(product.id)}>
                         <i className="bi bi-trash3"></i>
                         </button>

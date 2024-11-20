@@ -26,26 +26,26 @@ export default function Nav() {
 
     return (
         <div>
-            <div className='nav-area'>
+            <div>
             <nav>
                 <Link to='/' id="home-link">Home</Link>
                 <ul className='home-nav'>
                     {loggedIn ? (
                         <>
-                            <li><Link id='category' to="/categories">Categories</Link></li>
-                            <li><Link id='tag' to="/tags">Tags</Link></li>
-                            <li><Link id='product' to="/products">Products</Link></li>
-                            <li><Link id='profile' to="/profile">Profile</Link></li>
+                            <li><Link className='nav-link' to="/categories">Categories</Link></li>
+                            <li><Link className='nav-link' to="/tags">Tags</Link></li>
+                            <li><Link className='nav-link' to="/products">Products</Link></li>
+                            <li><Link className='nav-link' to="/profile">Profile</Link></li>
                             <button id='logout' onClick={handleLogout}>Logout</button>
                         </>
                     ) : (
                         <>
-                            <li><Link id='signup' to="/signup">Sign Up</Link></li>
-                            <li><Link id='login' to="/login">Login</Link></li>
+                            <li><Link className='nav-link' to="/signup">Sign Up</Link></li>
+                            <li><Link className='nav-link' to="/login">Login</Link></li>
                         </>
                     )}
-                </ul>
-            </nav>
+                    </ul>
+                </nav>
             </div>
         </div>
     );

@@ -43,11 +43,9 @@ export default function CatgeoryList() {
                 ))}
             </ul>
         </div>
-        <div className='form-container'>
-        <div className='form-area'>
-        <div className='category-form'>
+        <div className='categoryForm-container'>
+            <div className='catForm-area'>
         <CategoryForm />
-        </div>
         </div>
         </div>
         </div>

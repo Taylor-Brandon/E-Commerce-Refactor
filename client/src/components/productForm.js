@@ -62,7 +62,7 @@ export default function ProductForm() {
             <div className='productForm'>
             <form className='form' onSubmit={handleFormSubmit}>
                 <div className='field'>
-                    <label className='label has-text-white is-size-4'>Product Name</label>
+                    <label className='label has-text-black is-size-4'>Product Name</label>
                     <div className='form-control'>
                         <input
                             className='input has-background-white has-text-black'
@@ -74,7 +74,7 @@ export default function ProductForm() {
                     </div>
                 </div>
                 <div className='field'>
-                    <label className='label has-text-white is-size-4'>Price</label>
+                    <label className='label has-text-black is-size-4'>Price</label>
                     <div className='form-control'>
                         <input
                             className='input has-background-white has-text-black'
@@ -86,7 +86,7 @@ export default function ProductForm() {
                     </div>
                 </div>
                 <div className='field'>
-                    <label className='label has-text-white is-size-4'>Stock</label>
+                    <label className='label has-text-black is-size-4'>Stock</label>
                     <div className='form-control'>
                         <input
                             className='input has-background-white has-text-black'
@@ -98,7 +98,7 @@ export default function ProductForm() {
                     </div>
                 </div>
                 <div className='field'>
-                    <label className='label has-text-white is-size-4'>Product Images</label>
+                    <label className='label has-text-black is-size-4'>Product Images</label>
                     <div className='form-control'>
                         <input
                             className='input has-background-white has-text-black'
@@ -109,7 +109,7 @@ export default function ProductForm() {
                     </div>
                 </div>
                 <div className='field'>
-                    <label className='label has-text-white is-size-4'>Category Id</label>
+                    <label className='label has-text-black is-size-4'>Category Id</label>
                     <div className='form-control'>
                         <input
                             className='input has-background-white has-text-black'
@@ -121,7 +121,7 @@ export default function ProductForm() {
                     </div>
                 </div>
                 <div className='field'>
-                    <label className='label has-text-white is-size-4'>Tag Id</label>
+                    <label className='label has-text-black is-size-4'>Tag Id</label>
                     <div className='form-control'>
                         <input
                             className='input has-background-white has-text-black'
@@ -133,7 +133,7 @@ export default function ProductForm() {
                     </div>
                 </div>
                 <div className='field'>
-                    <label className='label has-text-white is-size-4'>Description</label>
+                    <label className='label has-text-black is-size-4'>Description</label>
                     <div className='form-control'>
                         <input
                             className='input has-background-white has-text-black'
@@ -144,7 +144,7 @@ export default function ProductForm() {
                         />
                     </div>
                     </div>
-                <button id='productAdd-btn' className='button' type='submit'>Add</button>
+                <button id='productAdd-btn' className='button mt-3' type='submit'>Add</button>
             </form>
             </div>
         </div>
