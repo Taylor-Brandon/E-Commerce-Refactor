@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import Nav from './nav';
+import Nav from '../components/nav';
 import api from '../utils/api';
 
 export default function UpdateUser() {
@@ -54,8 +54,8 @@ export default function UpdateUser() {
                 <label className='label has-text-white is-size-4'>Username</label>
                 <div className='control'>
                     <input
+                    id='updateUsername-input'
                     className='input has-background-white has-text-black'
-                    placeholder='Username'
                     name='username'
                     value={formState.username}
                     onChange={handleInputChange}
@@ -67,8 +67,8 @@ export default function UpdateUser() {
                 <label className='label has-text-white is-size-4'>Email</label>
                 <div className='control'>
                     <input
+                    id='updateEmail-input'
                     className='input has-background-white has-text-black'
-                    placeholder='Email'
                     name='email'
                     value={formState.email}
                     onChange={handleInputChange}
@@ -80,8 +80,8 @@ export default function UpdateUser() {
                 <label className='label has-text-white is-size-4'>Password</label>
                 <div className='control'>
                     <input
+                    id='updatePassword-input'
                     className='input has-background-white has-text-black'
-                    placeholder='Password'
                     name='password'
                     value={formState.password}
                     onChange={handleInputChange}

@@ -39,6 +39,7 @@ export default function SearchProducts() {
                 <form className="field" onSubmit={(e) => e.preventDefault()}>
                     <div className="form-control">
                         <input
+                            id='search-input'
                             className="input"
                             type="text"
                             value={search}

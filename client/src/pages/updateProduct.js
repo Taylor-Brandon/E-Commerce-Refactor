@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import Nav from '../components/nav';
 import api from '../utils/api';
 
 export default function UpdateProduct() {
@@ -76,13 +77,17 @@ export default function UpdateProduct() {
     };
 
     return (
-        <div className='form-area'>
-            <h2>Update product</h2>
+        <div>
+            <Nav />
+             <h2 id='updateProduct-header'>Update product</h2>
+             <div id='updateProduct-form'>
+        <div className='form-area has-background-white'>
             <form onSubmit={handleFormSubmit}>
                 <div className='field'>
-                    <label className='label'>Product Name</label>
+                    <label className='label has-text-black'>Product Name</label>
                     <div className='control'>
                         <input
+                            id='updateProductName-input'
                             className='input'
                             type='text'
                             placeholder='Product Name'
@@ -93,9 +98,10 @@ export default function UpdateProduct() {
                     </div>
                 </div>
                 <div className='field'>
-                    <label className='label'>Price</label>
+                    <label className='label has-text-black'>Price</label>
                     <div className='control'>
                         <input
+                            id='updatePrice-input'
                             className='input'
                             type='number'
                             placeholder='Price'
@@ -106,9 +112,10 @@ export default function UpdateProduct() {
                     </div>
                 </div>
                 <div className='field'>
-                    <label className='label'>Stock</label>
+                    <label className='label has-text-black'>Stock</label>
                     <div className='control'>
                         <input
+                            id='updateStock-input'
                             className='input'
                             type='number'
                             placeholder='Stock'
@@ -119,9 +126,10 @@ export default function UpdateProduct() {
                     </div>
                 </div>
                 <div className='field'>
-                    <label className='label'>Product Image</label>
+                    <label className='label has-text-black'>Product Image</label>
                     <div className='control'>
                         <input
+                            id='updateProductImage-input'
                             className='input'
                             type='file'
                             placeholder='Image'
@@ -131,9 +139,10 @@ export default function UpdateProduct() {
                     </div>
                 </div>
                 <div className='field'>
-                    <label className='label'>Category Id</label>
+                    <label className='label has-text-black'>Category Id</label>
                     <div className='control'>
                         <input
+                            id='updateProductCat-input'
                             className='input'
                             type='number'
                             placeholder='Category Id'
@@ -144,9 +153,10 @@ export default function UpdateProduct() {
                     </div>
                 </div>
                 <div className='field'>
-                    <label className='label'>Tag Ids</label>
+                    <label className='label has-text-black'>Tag Ids</label>
                     <div className='control'>
                         <select
+                            id='updateProductTag-input'
                             className='input'
                             name='tagIds'
                             multiple 
@@ -161,9 +171,10 @@ export default function UpdateProduct() {
                     </div>
                 </div>
                 <div className='field'>
-                    <label className='label'>Description</label>
+                    <label className='label has-text-black'>Description</label>
                     <div className='control'>
                         <input
+                            id='updateDescription-input'
                             className='input'
                             type='type'
                             placeholder='description'
@@ -175,6 +186,8 @@ export default function UpdateProduct() {
                 </div>
                 <button className='button' type='submit'>Update</button>
             </form>
+            </div>
+        </div>
         </div>
     );
 }

@@ -244,6 +244,10 @@ li{
     color: white;
     border-radius: 20px;
 }
+#cat-input{
+    font-family: "Bebas Neue", sans-serif;
+
+}
 #catForm-btn{
     background-color: black;
     color: white;
@@ -296,6 +300,9 @@ li{
     padding: 20px;
     height: 25%;
     margin-top: 300px;
+    font-family: "Bebas Neue", sans-serif;
+}
+#tag-input{
     font-family: "Bebas Neue", sans-serif;
 }
 #tag-btn{
@@ -431,6 +438,9 @@ li{
     margin-top: 10px;
     margin-right: 15px;
 }
+#search-input{
+    font-family: "Bebas Neue", sans-serif;
+}
 #cart-btn{
     font-size: 20px;
     border: none;
@@ -550,6 +560,15 @@ li{
     color: black;
     font-size: 20px;
 }
+#updateUsername-input{
+    font-family: "Bebas Neue", sans-serif;
+}
+#updateEmail-input{
+    font-family: "Bebas Neue", sans-serif;
+}
+#updatePassword-input{
+    font-family: "Bebas Neue", sans-serif;
+}
 #delete-account{
     font-size: 20px;
     margin-top: 10px;
@@ -595,6 +614,129 @@ li{
     font-family: "Bebas Neue", sans-serif;
     font-size: 25px;
 }
+
+.catUpdate-area{
+    display: flex;
+    justify-content: center;
+}
+#catUpdate-header{
+    margin-top: 20px;
+    font-size: 30px;
+    color: white;
+    font-family: "Bebas Neue", sans-serif;
+    text-align: center;
+}
+.catUpdate-form{
+    margin-top: 50px;
+    border: 1px solid white;
+    border-radius: 20px;
+    padding: 30px;
+    background-color: white;
+}
+#updateCat-input{
+    font-family: "Bebas Neue", sans-serif;
+}
+#catUpdate-label{
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 20px;
+}
+#catUpdate-btn{
+    font-family: "Bebas Neue", sans-serif;
+}
+#catUpdate-btn:hover{
+    background-color: white;
+    color: black;
+}
+
+.tagUpdate-area{
+    display: flex;
+    justify-content: center;
+}
+#updateTag-header{
+    text-align: center;
+    color: white;
+    font-size: 30px;
+    font-family: "Bebas Neue", sans-serif;
+    margin-top: 20px;
+}
+.tagUpdate-form{
+    border: 1px solid white;
+    background-color: white;
+    border-radius: 20px;
+    padding: 30px;
+    margin-top: 50px;
+}
+#updateTag-label{
+    font-size: 20px;
+    font-family: "Bebas Neue", sans-serif;
+}
+#updateTag-input{
+    font-family: "Bebas Neue", sans-serif;
+}
+#tagUpdate-btn{
+    font-family: "Bebas Neue", sans-serif;
+}
+#tagUpdate-btn:hover{
+    background-color: white;
+    color: black;
+}
+#productName-input{
+    font-family: "Bebas Neue", sans-serif;
+}
+#productPrice-input{
+    font-family: "Bebas Neue", sans-serif;
+}
+#productStock-input{
+    font-family: "Bebas Neue", sans-serif;
+}
+#productImage-input{
+    font-family: "Bebas Neue", sans-serif;
+}
+#productCat-input{
+    font-family: "Bebas Neue", sans-serif;
+}
+#productTag-input{
+    font-family: "Bebas Neue", sans-serif;
+}
+#productDescription-input{
+    font-family: "Bebas Neue", sans-serif;
+}
+#updateProduct-header{
+    text-align: center;
+    color: white;
+    font-family: "Bebas Neue", sans-serif;
+    margin-top: 20px;
+    font-size: 30px;
+}
+#updateProduct-form{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    margin-top: -30px;
+}
+#updateProductName-input{
+    font-family: "Bebas Neue", sans-serif;
+}
+#updatePrice-input{
+    font-family: "Bebas Neue", sans-serif;
+}
+#updateStock-input{
+    font-family: "Bebas Neue", sans-serif;
+}
+#updateProductImage-input{
+    font-family: "Bebas Neue", sans-serif;
+}
+#updateProductCat-input{
+    font-family: "Bebas Neue", sans-serif;
+}
+#updateProductTag-input{
+    font-family: "Bebas Neue", sans-serif;
+}
+#updateDescription-input{
+    font-family: "Bebas Neue", sans-serif;
+}
+
+
 
 
 

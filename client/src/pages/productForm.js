@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import api from '../utils/api';
-import Nav from './nav';
+import Nav from '../components/nav';
 
 export default function ProductForm() {
     const [formState, setFormState] = useState({
@@ -65,6 +65,7 @@ export default function ProductForm() {
                     <label className='label has-text-black is-size-4'>Product Name</label>
                     <div className='form-control'>
                         <input
+                            id='productName-input'
                             className='input has-background-white has-text-black'
                             value={formState.product_name}
                             name="product_name"
@@ -77,6 +78,7 @@ export default function ProductForm() {
                     <label className='label has-text-black is-size-4'>Price</label>
                     <div className='form-control'>
                         <input
+                            id='productPrice-input'
                             className='input has-background-white has-text-black'
                             value={formState.price}
                             name="price"
@@ -89,6 +91,7 @@ export default function ProductForm() {
                     <label className='label has-text-black is-size-4'>Stock</label>
                     <div className='form-control'>
                         <input
+                            id='productStock-input'
                             className='input has-background-white has-text-black'
                             value={formState.stock}
                             name="stock"
@@ -101,6 +104,7 @@ export default function ProductForm() {
                     <label className='label has-text-black is-size-4'>Product Images</label>
                     <div className='form-control'>
                         <input
+                            id='productImage-input'
                             className='input has-background-white has-text-black'
                             name="productImage"
                             type="file"
@@ -112,6 +116,7 @@ export default function ProductForm() {
                     <label className='label has-text-black is-size-4'>Category Id</label>
                     <div className='form-control'>
                         <input
+                            id='productCat-input'
                             className='input has-background-white has-text-black'
                             value={formState.category_id}
                             name="category_id"
@@ -124,6 +129,7 @@ export default function ProductForm() {
                     <label className='label has-text-black is-size-4'>Tag Id</label>
                     <div className='form-control'>
                         <input
+                            id='productTag-input'
                             className='input has-background-white has-text-black'
                             value={formState.tagIds}
                             name="tagIds"
@@ -136,6 +142,7 @@ export default function ProductForm() {
                     <label className='label has-text-black is-size-4'>Description</label>
                     <div className='form-control'>
                         <input
+                            id='productDescription-input'
                             className='input has-background-white has-text-black'
                             value={formState.description}
                             name="description"
