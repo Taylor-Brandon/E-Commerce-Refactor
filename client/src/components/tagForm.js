@@ -34,7 +34,8 @@ export default function TagForm() {
             <div className='field mt-4 ml-3 mr-3'>
                 <div className='label has-text-white ml-2 is-size-4'>Tag Name</div>
                 <input
-                className='input has-background-white'
+                id='tag-input'
+                className='input has-background-white has-text-black'
                 onChange={handleInputChange}
                 type="text"
                 name="tag_name"

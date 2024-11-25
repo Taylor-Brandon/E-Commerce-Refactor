@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import Nav from '../components/nav';
 import api from '../utils/api';
 
 export default function TagUpdate() {
@@ -40,14 +41,17 @@ export default function TagUpdate() {
             });
     };
     return(
-        <div className='form-area'>
-            <h2>Update tag</h2>
-            <form onSubmit={handleFormSubmit}>
+        <div>
+            <Nav />
+            <h2 id='updateTag-header'>Update tag</h2>
+        <div className='tagUpdate-area'>
+            <form className='tagUpdate-form' onSubmit={handleFormSubmit}>
                 <div className='field'>
-                    <label className='label'>Tag Name</label>
+                    <label id='updateTag-label' className='label has-text-black'>Tag Name</label>
                     <div className='control'>
                         <input
-                            className='input'
+                            id='updateTag-input'
+                            className='input has-background-white has-text-black'
                             type='text'
                             placeholder='Tag Name'
                             name='tag_name'
@@ -56,8 +60,9 @@ export default function TagUpdate() {
                         />
                     </div>
                 </div>
-                <button className='button' type='submit'>Update</button>
+                <button id='tagUpdate-btn' className='button' type='submit'>Update</button>
             </form>
+        </div>
         </div>
     );
 }
